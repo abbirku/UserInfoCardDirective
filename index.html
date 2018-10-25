@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Template with angularjs</title>
+
+        <!-- Bootstrap -->
+        <link href="contents/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body ng-controller="MyLayoutController">
+
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                    <a class="navbar-brand" href="#">User Info Card Template</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li class="{{isActiveHome}}" ng-click="OnHome()"><a href="#!/">Home</a></li>
+                        <li class="{{isActiveContact}}" ng-click="OnContact()"><a href="#!/contact">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        
+        <!--Loading all partial views here-->
+        <ng-view></ng-view>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="scripts/lib/jquery-3.3.1.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="contents/bootstrap/js/bootstrap.min.js"></script>
+        
+        <!--AngularJS 1.7.5-->
+        <script src="scripts/lib/angular.min.js"></script>
+        <script src="scripts/lib/angular-route.min.js"></script>
+
+        <!-- app js -->
+        <script src="scripts/app/app.js"></script>
+
+        <!--Angularjs custom directive-->
+        <script src="scripts/app/directives/UserInfoCardDirective.js"></script>
+
+        <!--AngularJS Services-->
+        <script src="scripts/app/services/UserInfoService.js"></script>
+        
+        <!-- Angularjs controller -->
+        <script src="scripts/app/controllers/MyController.js"></script>
+        <script src="scripts/app/controllers/ContactController.js"></script>
+
+    </body>
+</html>

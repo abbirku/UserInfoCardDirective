@@ -1,0 +1,9 @@
+<div class="panel-body" ng-click="collapsePanelBody()" ng-hide="collapsed">
+    <h4>Address:</h4>
+    <label class="text-success">House No: <label class="text-info">{{userData.Address.HouseNo}}</label> </label>
+    <label class="text-success">Road No: <label class="text-info">{{userData.Address.RoadNo}}</label> </label>
+    <label class="text-success">City No: <label class="text-info">{{userData.Address.City}}</label> </label>
+</div>
+<div class="panel-body" ng-click="expandPanelBody()" ng-hide="!collapsed">
+    Address is collapsed...
+</div>

@@ -1,0 +1,11 @@
+<div class="panel panel-primary">
+    <div class="panel-heading" ng-click="Collpase()">Customer Name:&nbsp;<label style="color: white;">{{userData.Name}}</label></div>    
+    <swa-panel-body></swa-panel-body>
+    <div class="panel-footer" ng-hide="collapsed">
+        <h4>Orders:</h4>
+        <ul ng-repeat="row in userData.Orders">
+            <li class="text-uppercase"><div class="text-info">{{row}}</div></li>
+        </ul>
+    </div>
+</div>
+
