@@ -10,6 +10,10 @@ app.directive('userInfoCard', function(){
             $scope.Collpase = function(){
                 $scope.collapsed = !$scope.collapsed;
             }
+            $scope.removeOrder = function(data){
+                var index = $scope.userData.Orders.indexOf(data);
+                $scope.userData.Orders.splice(index, 1);
+            }
         }
     }
 });

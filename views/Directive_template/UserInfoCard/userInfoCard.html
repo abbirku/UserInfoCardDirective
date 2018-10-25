@@ -4,7 +4,14 @@
     <div class="panel-footer" ng-hide="collapsed">
         <h4>Orders:</h4>
         <ul ng-repeat="row in userData.Orders">
-            <li class="text-uppercase"><div class="text-info">{{row}}</div></li>
+            <div class="row">
+                <div class="col-md-3">
+                        <li class="text-uppercase"><div class="text-info">{{row}}</div></li>
+                </div>
+                <div class="col-md-8">
+                    <list-operations method="removeOrder(row)"></list-operations>
+                </div>
+            </div>
         </ul>
     </div>
 </div>

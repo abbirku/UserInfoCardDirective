@@ -1,0 +1,10 @@
+<div class="row">
+    <div class="col-sm-2">
+            <span class="glyphicon glyphicon-remove" style="cursor:pointer" ng-click="startRemove()" ng-hide="removing"></span>
+    </div>
+    <div class="col-sm-10" ng-show="removing">
+        <button class="btn btn-xs btn-success" ng-click="confirmRemove()">Remove</button>
+        <button style="display: inline-block; vertical-align: top;" class="btn btn-xs btn-danger" ng-click="cancelRemove()">Never Mind</button>
+    </div>
+</div>
+
