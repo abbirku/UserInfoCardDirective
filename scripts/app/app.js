@@ -11,6 +11,10 @@ var app = angular.module('MyApp',['ngRoute'])
                 templateUrl: '../../views/Home/contact.html',
                 controller: 'ContentController'
             })
+            .when('/decoratorDirective',{
+                templateUrl: '../../views/Directive_template/DecoratorDirective/decoratirDirective.html',
+                controller: 'DecoratorController'
+            })
             .otherwise({
                 redirectTo: '/'
             });
@@ -20,13 +24,8 @@ app.controller('MyLayoutController',function ($scope) {
     $scope.isActiveHome = 'active';
     $scope.isActiveContact = '';
 
-    $scope.OnHome = function(){
-        $scope.isActiveHome = 'active';
-        $scope.isActiveContact = '';
-    }
-
-    $scope.OnContact = function(){
-        $scope.isActiveHome = '';
-        $scope.isActiveContact = 'active';
-    }
+    $('.nav a').on('click',function(){
+        $('.nav').find('.active').removeClass('active');
+        $(this).parent().addClass('active');
+    });
 });

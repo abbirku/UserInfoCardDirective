@@ -19,8 +19,9 @@
                     <a class="navbar-brand" href="#">User Info Card Template</a>
                     </div>
                     <ul class="nav navbar-nav">
-                        <li class="{{isActiveHome}}" ng-click="OnHome()"><a href="#!/">Home</a></li>
-                        <li class="{{isActiveContact}}" ng-click="OnContact()"><a href="#!/contact">Contact</a></li>
+                        <li class="active"><a href="#!/">Home</a></li>
+                        <li><a href="#!/contact">Contact</a></li>
+                        <li><a href="#!/decoratorDirective">Decorator Directive</a></li>
                     </ul>
                 </div>
             </nav>
@@ -44,6 +45,7 @@
         <!--Angularjs custom directive-->
         <script src="scripts/app/directives/UserInfoCardDirective.js"></script>
         <script src="scripts/app/directives/ListOperationDirective.js"></script>
+        <script src="scripts/app/directives/DecoratorDirectiveTest.js"></script>
 
         <!--AngularJS Services-->
         <script src="scripts/app/services/UserInfoService.js"></script>
@@ -51,6 +53,7 @@
         <!-- Angularjs controller -->
         <script src="scripts/app/controllers/MyController.js"></script>
         <script src="scripts/app/controllers/ContactController.js"></script>
+        <script src="scripts/app/controllers/DecoratorController.js"></script>
 
     </body>
 </html>
