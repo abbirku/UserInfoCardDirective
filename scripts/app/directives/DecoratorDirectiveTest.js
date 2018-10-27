@@ -1,33 +1,41 @@
+//For this directive name field and bootstrp 3.3.7 is required
 app.directive('isRequired',function(){
     return {
         restrict: 'A',
         link: function(scope,  el, attr){
-            // console.log(evt);
-            // console.log(scope);
-            // console.log($(el[0]).prop("tagName"));    
-            //console.log(attr);
-            
-            $($(el).prop("tagName")).focusout(function(){
-                console.log($(el).prop("tagName"));
+            //Selecting focuse out for field.
+            $("[name='"+attr.name+"']").focusout(function(){
                 if(attr.required){
+                    //Gathering its value
                     var val = $("[name='"+attr.name+"']").val();
+
+                    //Check if the form field is of type text
                     if(attr.type === 'text'){
-                        if(val === '' || typeof val === 'undefined' || val == null){
-                            //alert(attr.errorMessage);
-                            $(this).parent().children('.form-control-feedback').addClass('glyphicon-remove');
-                            $(this).parent().children('.glyphicon-remove').css('color','#a94442');
-                            $(this).parent().children('.with-errors').text(attr.errorMessage);
-                            $(this).parent().children('input').css('border', '1px solid #a94442');
-                            $(this).parent().children('.with-errors').css('color','#a94442');
-                        }else{
-                            $(this).parent().find('.glyphicon-remove').removeClass('glyphicon-remove');
-                            $(this).parent().children('.form-control-feedback').addClass('glyphicon-ok');
-                            $(this).parent().children('.glyphicon-ok').css('color','#3c763d');
-                            $(this).parent().children('input').css('border', '1px solid #3c763d');
-                            $(this).parent().children('.with-errors').remove();
+                        if(val === '' || typeof val === 'undefined' || val == null){ //On failier
+                            //Removing success property
+                            $("[name='"+attr.name+"']").parent().children('.glyphicon-ok').remove();
+                            $("[name='"+attr.name+"']").parent().children($(el).prop("tagName")).css('border','1px solid black');
+
+                            //Adding danger property
+                            $("[name='"+attr.name+"']").parent().append('<span class="glyphicon form-control-feedback glyphicon-remove" aria-hidden="true"></span>');
+                            $("[name='"+attr.name+"']").parent().children('.glyphicon-remove').css('color','#a94442');
+                            $("[name='"+attr.name+"']").parent().children($(el).prop("tagName")).css('border','1px solid #a94442');
+                            $("[name='"+attr.name+"']").parent().append('<div class="help-block with-errors">'+attr.errorMessage+'</div>');
+                            $("[name='"+attr.name+"']").parent().children('.with-errors').css('color','#a94442');
+                            console.log(attr.name);
+                        }else{ //On success
+                            //Removing danger property
+                            $("[name='"+attr.name+"']").parent().children('.glyphicon-remove').remove();
+                            $("[name='"+attr.name+"']").parent().children('.with-errors').remove();
+                            
+                            //Adding success property
+                            $("[name='"+attr.name+"']").parent().append('<span class="glyphicon form-control-feedback glyphicon-ok" aria-hidden="true"></span>');
+                            $("[name='"+attr.name+"']").parent().children($(el).prop("tagName")).css('border','1px solid #3c763d');
                         }
+                    }else{
+                        console.log('Choose other fields');
                     }
-                    //console.log('Present value is '+$("[name='"+attr.name+"']").val());;
+
                 }else{
                     console.log('The field is not required.');
                 }
